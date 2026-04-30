@@ -6,20 +6,20 @@ import HighlightText from "./HighlightText";
 const sliders = [
   {
     id: 1,
-    title: "Unbeatable Summer deals",
+    title: "Big summer sale is live now",
     highlight: "Summer Sale 50% OFF",
     img: "/sunglass.png",
   },
   {
     id: 2,
-    title: "Today's Hot Deals",
-    highlight: "Hot Deals 🔥",
+    title: "Best offers for you",
+    highlight: "Hot Deals ❤️‍🔥",
     img: "/cap.png",
   },
   {
     id: 3,
-    title: "Fresh New Arrivals",
-    highlight: "NEW ARRIVALS ✨",
+    title: "Check out latest products",
+    highlight: "NEW ARRIVALS 🚀",
     img: "/water-pot.png",
   },
 ];
@@ -49,7 +49,6 @@ const Banner = () => {
           style={{ ...style, willChange: "transform, opacity" }}
           className="absolute w-full h-full bg-cover bg-center"
         >
-          {/* Background */}
           <div
             className="w-full h-full bg-cover bg-center"
             style={{
@@ -57,15 +56,12 @@ const Banner = () => {
               transform: "translateZ(0)",
             }}
           >
-            {/* Overlay */}
             <div className="w-full h-full bg-black/50 flex items-center justify-center">
               <div className="text-center text-white px-4">
-                {/* Title */}
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                <h1 className="text-3xl md:text-6xl font-bold mb-4">
                   {item.title}
                 </h1>
 
-                {/* Animated Highlight */}
                 <HighlightText text={item.highlight} />
                 <div className=" mt-6">
                   <button className="bg-[#005691] text-[18px] font-medium px-5 py-2 rounded-md cursor-pointer">
