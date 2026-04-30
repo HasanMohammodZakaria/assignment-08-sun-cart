@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
 
         <p className="flex items-center gap-1 text-[16px] font-semibold">
           <MdStar size={20} className="text-[#FDB813] " />
-          {product.rating}
+          {product.brand}
         </p>
       </div>
       <Button
