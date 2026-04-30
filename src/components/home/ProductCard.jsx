@@ -1,5 +1,6 @@
 import { Button, Card, Chip, Separator } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { MdStar } from "react-icons/md";
 
@@ -34,12 +35,14 @@ const ProductCard = ({ product }) => {
           {product.brand}
         </p>
       </div>
-      <Button
-        variant="tertiary"
-        className="w-full bg-[#005691] text-white text-[18px] font-medium mt-3 "
-      >
-        View Details
-      </Button>
+      <Link href={`/products/${product.id}`}>
+        <Button
+          variant="tertiary"
+          className="w-full bg-[#005691] text-white text-[18px] font-medium mt-3 "
+        >
+          View Details
+        </Button>
+      </Link>
     </Card>
   );
 };
