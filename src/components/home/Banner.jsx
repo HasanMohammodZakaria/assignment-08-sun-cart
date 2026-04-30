@@ -7,7 +7,7 @@ const sliders = [
   {
     id: 1,
     title: "Big summer sale is live now",
-    highlight: "Summer Sale 50% OFF",
+    highlight: "Summer Sale 50% OFF 🚨",
     img: "/sunglass.png",
   },
   {
@@ -43,7 +43,7 @@ const Banner = () => {
   });
 
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden my-10 ">
+    <div className="relative max-w-7xl mx-auto h-[80vh] rounded-lg overflow-hidden my-20 ">
       {transitions((style, item) => (
         <animated.div
           style={{ ...style, willChange: "transform, opacity" }}
