@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   FieldError,
@@ -10,11 +11,30 @@ import {
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const LogInPage = () => {
-  const { register, handleSubmit } = useForm();
-  const handleLoginForm = (data) => {
-    console.log(data, "data");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const handleLoginForm = async (data) => {
+    const { email, password } = data;
+    const { data: res, error } = await authClient.signIn.email({
+      email: email,
+      password: password,
+      rememberMe: true,
+      callbackURL: "/",
+    });
+
+    if (error) {
+      toast.error(error.message || "Login Failed");
+      return;
+    }
+    if (res) {
+      toast.success("Login Successful");
+    }
   };
 
   return (
@@ -28,15 +48,29 @@ const LogInPage = () => {
 
       <TextField isRequired name="email" type="email">
         <Label>Email</Label>
-        <Input placeholder="john@example.com" {...register("email")} />
+        <Input
+          placeholder="john@example.com"
+          {...register("email", { required: "Email field is required" })}
+        />
         <FieldError />
+        {errors.email && (
+          <p className="text-[10px] text-purple-600">{errors.email.message}</p>
+        )}
       </TextField>
 
       <TextField isRequired name="password" type="password">
         <Label>Password</Label>
-        <Input placeholder="Enter your password" {...register("password")} />
+        <Input
+          placeholder="Enter your password"
+          {...register("password", { required: "Password field is required" })}
+        />
 
         <FieldError />
+        {errors.password && (
+          <p className="text-[10px] text-purple-600">
+            {errors.password.message}
+          </p>
+        )}
       </TextField>
 
       <div className="flex gap-2">
