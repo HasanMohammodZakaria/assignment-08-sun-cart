@@ -31,10 +31,10 @@ const Navbar = () => {
             alt="Avatar"
             className="border border-[#005691] rounded-full"
           />
+          <button className="bg-[#FDB813] px-4 py-2 rounded-md text-[16px] font-medium text-white">
+            <Link href={"/login"}>Login</Link>
+          </button>
         </div>
-        <button className="bg-[#FDB813] px-4 py-2 rounded-md text-[16px] font-medium text-white">
-          <Link href={"/login"}>Login</Link>
-        </button>
       </div>
     </nav>
   );
