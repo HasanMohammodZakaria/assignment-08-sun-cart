@@ -9,7 +9,9 @@ import {
   TextField,
 } from "@heroui/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const RegisterPage = () => {
@@ -19,6 +21,8 @@ const RegisterPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
 
   const handleRegisterForm = async (data) => {
     const { name, photo, email, password } = data;
@@ -84,12 +88,23 @@ const RegisterPage = () => {
         )}
       </TextField>
 
-      <TextField isRequired name="password" type="password">
+      <TextField
+        isRequired
+        name="password"
+        type={isPasswordShow ? "text" : "password"}
+        className="relative"
+      >
         <Label>Password</Label>
         <Input
           placeholder="Enter your password"
           {...register("password", { required: "Password field is required" })}
         />
+        <span
+          className="absolute right-3 top-8.5 cursor-pointer"
+          onClick={() => setIsPasswordShow(!isPasswordShow)}
+        >
+          {isPasswordShow ? <FaEye /> : <FaEyeSlash />}
+        </span>
 
         <FieldError />
         {errors.password && (

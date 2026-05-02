@@ -9,8 +9,9 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const LogInPage = () => {
@@ -19,6 +20,9 @@ const LogInPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
+
   const handleLoginForm = async (data) => {
     const { email, password } = data;
     const { data: res, error } = await authClient.signIn.email({
@@ -58,13 +62,23 @@ const LogInPage = () => {
         )}
       </TextField>
 
-      <TextField isRequired name="password" type="password">
+      <TextField
+        isRequired
+        name="password"
+        type={isPasswordShow ? "text" : "password"}
+        className="relative"
+      >
         <Label>Password</Label>
         <Input
           placeholder="Enter your password"
           {...register("password", { required: "Password field is required" })}
         />
-
+        <span
+          className="absolute right-3 top-8.5 cursor-pointer"
+          onClick={() => setIsPasswordShow(!isPasswordShow)}
+        >
+          {isPasswordShow ? <FaEye /> : <FaEyeSlash />}
+        </span>
         <FieldError />
         {errors.password && (
           <p className="text-[10px] text-purple-600">
