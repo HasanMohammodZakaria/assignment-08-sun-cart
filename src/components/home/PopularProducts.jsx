@@ -5,7 +5,6 @@ const PopularProducts = async () => {
   const res = await fetch("https://sun-cart-peach.vercel.app/products.json");
   const data = await res.json();
   const products = data.slice(0, 6);
-  //console.log(products);
 
   return (
     <div className="max-w-7xl mx-auto mb-20 ">

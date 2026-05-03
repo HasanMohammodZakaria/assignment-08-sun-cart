@@ -1,6 +1,6 @@
 import { Chip } from "@heroui/react";
 import React from "react";
-import { FaArrowRight, FaCircle } from "react-icons/fa";
+import { FaCircle } from "react-icons/fa";
 import { GiOakLeaf, GiWaterDrop } from "react-icons/gi";
 import { MdSunny } from "react-icons/md";
 

@@ -4,15 +4,28 @@ import { headers } from 'next/headers';
 
 export async function proxy(request) {
 
+    const { pathname } = request.nextUrl;
+
     const session = await auth.api.getSession({
         headers: await headers()
     });
 
-    if (session) {
-        return NextResponse.next()
+    if (pathname.startsWith('/profile')) {
+        if (!session) {
+            return NextResponse.redirect(new URL('/login', request.url))
+        }
     }
 
-    return NextResponse.redirect(new URL('/login', request.url))
+    if (pathname.startsWith('/products') && pathname !== '/products') {
+        if (!session) {
+            return NextResponse.redirect(new URL('/login', request.url))
+        }
+    }
+
+    return NextResponse.next()
+
+
+
 }
 
 export const config = {
