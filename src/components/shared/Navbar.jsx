@@ -51,9 +51,14 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <button className="bg-[#FDB813] px-4 py-2 rounded-md text-[16px] font-medium text-white">
-            <Link href={"/login"}>Login</Link>
-          </button>
+          <div className="flex gap-3">
+            <button className="bg-[#FDB813] px-4 py-2 rounded-md text-[16px] font-medium text-white">
+              <Link href={"/login"}>Login</Link>
+            </button>
+            <button className="bg-[#005691] px-4 py-2 rounded-md text-[16px] font-medium text-white">
+              <Link href={"/register"}>Register</Link>
+            </button>
+          </div>
         )}
       </div>
     </nav>
