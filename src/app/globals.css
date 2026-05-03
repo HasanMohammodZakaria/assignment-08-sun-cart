@@ -3,6 +3,11 @@
 
 @tailwind utilities;
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 .animate-marquee {
     display: flex;
     width: max-content;
