@@ -8,7 +8,7 @@ const MyProfilePage = () => {
   const user = session?.user;
   console.log(user, "user");
   return (
-    <div className="my-15">
+    <div className="my-15 px-4 sm:px-0">
       <Card className="max-w-96 mx-auto flex flex-col items-center border">
         <Avatar className="w-30 h-30">
           <Avatar.Image
