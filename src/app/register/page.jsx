@@ -45,7 +45,7 @@ const RegisterPage = () => {
 
   return (
     <Form
-      className="flex justify-center w-96 mx-auto flex-col gap-4 my-10 bg-white shadow-md p-8 rounded-xl"
+      className="lex justify-center w-full max-w-md mx-auto flex-col gap-4 my-10 bg-white shadow-md p-8 rounded-xl"
       onSubmit={handleSubmit(handleRegisterForm)}
     >
       <h2 className="text-2xl font-bold text-center text-[#005691] mb-4">
