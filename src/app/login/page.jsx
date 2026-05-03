@@ -41,6 +41,13 @@ const LogInPage = () => {
     }
   };
 
+  const handleGoogleSignin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    console.log(data, "data");
+  };
+
   return (
     <Form
       className="flex justify-center w-96 mx-auto flex-col gap-4 my-10 bg-white shadow-md p-8 rounded-xl"
@@ -105,7 +112,10 @@ const LogInPage = () => {
 
         <div className="grow border-t border-gray-200"></div>
       </div>
-      <Button className="bg-transparent border border-[#005691] text-[#005691] w-full">
+      <Button
+        className="bg-transparent border border-[#005691] text-[#005691] w-full"
+        onClick={handleGoogleSignin}
+      >
         <FaGoogle />
         Login with Google
       </Button>
