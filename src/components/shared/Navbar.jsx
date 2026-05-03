@@ -11,7 +11,6 @@ import { ScaleLoader } from "react-spinners";
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
-  console.log(session);
 
   return (
     <nav className="border-b border-gray-100">
