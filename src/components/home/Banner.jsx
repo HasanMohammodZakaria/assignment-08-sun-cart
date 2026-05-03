@@ -43,7 +43,11 @@ const Banner = () => {
   });
 
   return (
-    <div className="relative max-w-7xl mx-auto h-[80vh] rounded-lg overflow-hidden my-20 ">
+    <div
+      className="relative max-w-7xl mx-auto 
+      h-[45vh] sm:h-[55vh] md:h-[65vh] lg:h-[80vh]
+      rounded-lg overflow-hidden my-10 md:my-16 lg:my-20"
+    >
       {transitions((style, item) => (
         <animated.div
           style={{ ...style, willChange: "transform, opacity" }}
@@ -57,14 +61,17 @@ const Banner = () => {
             }}
           >
             <div className="w-full h-full bg-black/50 flex items-center justify-center">
-              <div className="text-center text-white px-4">
-                <h1 className="text-3xl md:text-6xl font-bold mb-4">
+              <div className="text-center text-white px-4 sm:px-6 md:px-10">
+                <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4">
                   {item.title}
                 </h1>
 
-                <HighlightText text={item.highlight} />
-                <div className=" mt-6">
-                  <button className="bg-[#005691] text-[18px] font-medium px-5 py-2 rounded-md cursor-pointer">
+                <div className="text-sm sm:text-base md:text-lg">
+                  <HighlightText text={item.highlight} />
+                </div>
+
+                <div className="mt-4 md:mt-6">
+                  <button className="bg-[#005691] text-sm sm:text-base md:text-lg font-medium px-4 sm:px-5 py-2 rounded-md cursor-pointer">
                     Shop Now
                   </button>
                 </div>
