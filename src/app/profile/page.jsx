@@ -4,7 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Card } from "@heroui/react";
 
 const MyProfilePage = () => {
-  const { data: session, isPending } = authClient.useSession();
+  const { data: session } = authClient.useSession();
   const user = session?.user;
   console.log(user, "user");
   return (
