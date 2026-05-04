@@ -1,9 +1,14 @@
 import React from "react";
 import ProductCard from "./ProductCard";
+import fs from "fs";
+import path from "path";
 
 const PopularProducts = async () => {
-  const res = await fetch("https://sun-cart-peach.vercel.app/products.json");
-  const data = await res.json();
+  // const res = await fetch("https://sun-cart-peach.vercel.app/products.json");
+  // const data = await res.json();
+  const filePath = path.join(process.cwd(), "public", "products.json");
+  const fileData = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(fileData);
   const products = data.slice(0, 6);
 
   return (
