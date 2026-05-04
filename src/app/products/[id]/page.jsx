@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 const ProductsDetailsPage = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch("${process.env.NEXT_PUBLIC_BASE_URL}/products.json", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products.json`, {
     cache: "no-store",
   });
   const products = await res.json();
