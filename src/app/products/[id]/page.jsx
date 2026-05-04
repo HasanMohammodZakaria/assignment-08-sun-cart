@@ -5,11 +5,10 @@ import { CgShutterstock } from "react-icons/cg";
 import { MdStar } from "react-icons/md";
 import { SiBrandfolder } from "react-icons/si";
 
-export const dynamic = "force-dynamic";
-
 const ProductsDetailsPage = async ({ params }) => {
   const { id } = await params;
   const res = await fetch("https://sun-cart-peach.vercel.app/products.json");
+  console.log(res);
   const products = await res.json();
 
   const product = products.find((product) => product.id == id);

@@ -7,7 +7,7 @@ export async function proxy(request) {
     const { pathname } = request.nextUrl;
 
     const session = await auth.api.getSession({
-        headers: await headers()
+        headers: await headers(),
     });
 
     if (pathname.startsWith('/profile')) {
