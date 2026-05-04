@@ -2,7 +2,7 @@ import ProductCard from "@/components/home/ProductCard";
 import React from "react";
 
 const ProductsPage = async () => {
-  const res = await fetch("https://sun-cart-peach.vercel.app/products.json");
+  const res = await fetch("https://sun-cart-server-sxzu.onrender.com/products");
   const products = await res.json();
 
   return (

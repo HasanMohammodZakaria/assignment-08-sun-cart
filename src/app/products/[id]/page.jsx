@@ -7,7 +7,7 @@ import { SiBrandfolder } from "react-icons/si";
 
 const ProductsDetailsPage = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch("https://sun-cart-peach.vercel.app/products.json");
+  const res = await fetch("https://sun-cart-server-sxzu.onrender.com/products");
   console.log(res);
   const products = await res.json();
 

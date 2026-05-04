@@ -2,9 +2,9 @@ import React from "react";
 import ProductCard from "./ProductCard";
 
 const PopularProducts = async () => {
-  const res = await fetch("https://sun-cart-peach.vercel.app/products.json");
+  const res = await fetch("https://sun-cart-server-sxzu.onrender.com/products");
   const data = await res.json();
-
+  console.log(data);
   const products = data.slice(0, 6);
 
   return (
