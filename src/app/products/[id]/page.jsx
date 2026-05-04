@@ -4,12 +4,13 @@ import React from "react";
 import { CgShutterstock } from "react-icons/cg";
 import { MdStar } from "react-icons/md";
 import { SiBrandfolder } from "react-icons/si";
-import products from "@/public/products.json";
 
 const ProductsDetailsPage = async ({ params }) => {
   const { id } = await params;
-  // const res = await fetch("https://sun-cart-peach.vercel.app/products.json");
-  // const products = await res.json();
+  const res = await fetch("${process.env.NEXT_PUBLIC_BASE_URL}/products.json", {
+    cache: "no-store",
+  });
+  const products = await res.json();
 
   const product = products.find((product) => product.id == id);
 
